@@ -397,7 +397,6 @@ void withoutCAAnimation(withoutAnimationBlock code)
     NSAssert(self.maxCount > 1, @"Elements count must be greater than 1!");
     if (_index > (self.maxCount - 1)) {
         _index = self.maxCount - 1;
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
@@ -682,7 +681,7 @@ void withoutCAAnimation(withoutAnimationBlock code)
     }
 }
 
-GENERATE_SETTER(index, NSUInteger, setIndex, [self updateIndex]; [self sendActionsForControlEvents:UIControlEventValueChanged];);
+GENERATE_SETTER(index, NSUInteger, setIndex, [self updateIndex];);
 
 GENERATE_SETTER(trackHeight, CGFloat, setTrackHeight, [self updateDiff];);
 GENERATE_SETTER(trackCircleRadius, CGFloat, setTrackCircleRadius, [self updateDiff]; [self updateMaxRadius];);
